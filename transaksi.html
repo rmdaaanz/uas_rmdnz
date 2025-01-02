@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaksi Pemesanan Baja - Surya Baja</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        header {
+            background-color: #004d99;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+        #produk {
+            padding: 50px 0;
+            background-color: #ffffff;
+        }
+
+        #produk h2 {
+            color: #004d99;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .produk-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 15px;
+        }
+
+        .produk-item img {
+            width: 200px;
+            height: auto;
+        }
+
+        .produk-item .info {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .produk-item .info h3 {
+            color: #004d99;
+        }
+
+        .produk-item .info p {
+            margin-top: 10px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .produk-item .info .harga {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #ff6600;
+        }
+        #pemesan {
+            padding: 50px 0;
+            background-color: #ffffff;
+        }
+
+        #pemesan h2 {
+            color: #004d99;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        form label {
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        form input, form textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        form button {
+            padding: 12px;
+            background-color: #004d99;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #003366;
+        }
+        #transaksi {
+            padding: 50px 0;
+            background-color: #ffffff;
+        }
+
+        #transaksi h2 {
+            color: #004d99;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+
+        table th {
+            background-color: #004d99;
+            color: white;
+        }
+
+        footer {
+            background-color: #004d99;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="company.png" alt="Logo Surya Baja" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="transaksi.html">Transaksi</a></li>
+                    <li><a href="profil.html">Profil Perusahaan</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="produk">
+        <div class="container">
+            <h2>Produk Kami</h2>
+            <div class="produk-item">
+                <img src="baja ringan.png" alt="Baja Ringan">
+                <div class="info">
+                    <h3>Baja Ringan</h3>
+                    <p>Baja ringan adalah material konstruksi yang terbuat dari baja berkualitas tinggi, ringan, dan tahan lama. Sangat cocok untuk atap rumah, gudang, dan proyek konstruksi lainnya.</p>
+                    <p class="harga">Rp 98.000/btg. 1 pcs = 1btg</p>
+                </div>
+            </div>
+            <div class="produk-item">
+                <img src="koil baja.png" alt="Baja Koil">
+                <div class="info">
+                    <h3>Baja Koil</h3>
+                    <p>Baja koil adalah produk baja yang digulung dan digunakan dalam berbagai aplikasi industri seperti otomotif, pembuatan peralatan, dan konstruksi.</p>
+                    <p class="harga">Rp 15.000.000/ton. 1 pcs = 1 ton</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="pemesan">
+        <div class="container">
+            <h2>Form Pemesanan</h2>
+            <form id="orderForm" action="#" method="post" onsubmit="return validateForm()">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Masukkan email Anda">
+                
+                <label for="alamat">Alamat Pengiriman:</label>
+                <textarea id="alamat" name="alamat" rows="4" required placeholder="Masukkan alamat lengkap"></textarea>
+                
+                <label for="produk">Varian Produk:</label>
+                <select id="produk" name="produk" required>
+                    <option value="">Pilih Produk</option>
+                    <option value="baja_ringan">Baja Ringan</option>
+                    <option value="baja_koil">Baja Koil</option>
+                </select>
+                
+                <label for="jumlah">Jumlah:</label>
+                <input type="number" id="jumlah" name="jumlah" min="1" required placeholder="Jumlah produk yang dipesan per pcs">
+
+                <label for="nomor_pesanan">Nomor Pesanan:</label>
+                <input type="text" id="nomor_pesanan" name="nomor_pesanan" value="" readonly>
+                
+                
+                <button type="submit">Kirim Pemesanan</button>
+            </form>
+            <section id="link-daftar-transaksi">
+    <div class="container" style="text-align: center; margin-top: 20px;">
+        <a href="daftar.html" style="text-decoration: none; color: white; background-color: #004d99; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+            Lihat Daftar Transaksi
+        </a>
+    </div>
+</section>
+        </div>
+    </section>
+    <section id="transaksi">
+        <div class="container">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Surya Baja. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+    
+    <script>
+        function generateRandomOrderNumber() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < 10; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+        document.getElementById('nomor_pesanan').value = generateRandomOrderNumber();
+
+        function validateForm() {
+            const email = document.get
